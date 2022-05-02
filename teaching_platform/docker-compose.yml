@@ -5,10 +5,14 @@ services:
     image: postgres
     # volumes:
     #   - ./data/db:/var/lib/postgresql/data
+    ports:
+      - 2345:5432
     environment:
-      - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - ID=vuDXXNdxvHUQuXZrmuvvNzXScVvFYexpIOuC6qK0
+      - SECRET=i8Zn6JhtN9Q0EQyfg0PnwcV7NAp8Q057wnL3STnFSpBgRJGBs5avhK4KRUTRs7Wt2grivTGIYQrzYVtPUQmUyf9EFawi3yon3N1Hiq5sLFXninVbEOJgb1dy3bS2h45k
+      - CODE=Je8WE76hiZKi7cyI5XEXHuIKharZSU
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -17,7 +21,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - POSTGRES_NAME=postgres
+      - POSTGRES_NAME=doggo
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     depends_on:

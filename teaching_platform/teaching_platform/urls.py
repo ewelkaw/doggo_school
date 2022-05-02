@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from doggo_school import views
+from doggo_school.views import ApiEndpoint
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("oauth2/", include("oauth2_provider.urls", namespace="oauth2_provider")),
+    path("api/", ApiEndpoint.as_view()),
+    path("secret/", views.secret_page),
 ]
