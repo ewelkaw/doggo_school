@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "oauth2_provider",
+    # "django_registration",
 ]
 
 MIDDLEWARE = [
@@ -135,5 +136,5 @@ LOGIN_URL = "/admin/login/"
 AUTHENTICATION_BACKENDS = [
     "oauth2_provider.backends.OAuth2Backend",
     # Uncomment following if you want to access the admin
-    #'django.contrib.auth.backends.ModelBackend',
+    "django.contrib.auth.backends.ModelBackend",
 ]
