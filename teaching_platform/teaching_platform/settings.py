@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "oauth2_provider",
-    # "django_registration",
+    "django_registration",
 ]
 
 MIDDLEWARE = [
@@ -132,6 +132,7 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "doggo_school.User"
 LOGIN_URL = "/admin/login/"
+ACCOUNT_ACTIVATION_DAYS = 1  # One-day activation window
 
 AUTHENTICATION_BACKENDS = [
     "oauth2_provider.backends.OAuth2Backend",

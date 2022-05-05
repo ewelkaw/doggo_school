@@ -22,5 +22,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("oauth2/", include("oauth2_provider.urls", namespace="oauth2_provider")),
     path("api/", ApiEndpoint.as_view()),
-    path("secret/", views.secret_page),
+    path(
+        "accounts/",
+        include("django_registration.backends.activation.urls"),
+    ),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
