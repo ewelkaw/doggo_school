@@ -26,12 +26,13 @@ SECRET_KEY = "django-insecure-(m&+c(ej!^%f!^8!+5@6otw&mtwl^wg1*p$+(d(_je=wziwxew
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "0.0.0.0"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "doggo_school",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -39,9 +40,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "oauth2_provider",
+    "django_registration",
 ]
 
 MIDDLEWARE = [
+    "oauth2_provider.middleware.OAuth2TokenMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -127,3 +130,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+AUTH_USER_MODEL = "doggo_school.User"
+LOGIN_URL = "/admin/login/"
+ACCOUNT_ACTIVATION_DAYS = 1  # One-day activation window
+
+AUTHENTICATION_BACKENDS = [
+    "oauth2_provider.backends.OAuth2Backend",
+    # Uncomment following if you want to access the admin
+    "django.contrib.auth.backends.ModelBackend",
+]
